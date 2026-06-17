@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { scroll-behavior: smooth; }
+
+body {
+  background-color: #04060C;
+  background-image:
+    radial-gradient(120% 75% at 50% -8%, rgba(20,33,58,0.9) 0%, rgba(8,12,22,0) 55%),
+    linear-gradient(180deg, #06090F 0%, #04060C 100%);
+  background-attachment: fixed;
+  color: #8B95A7;
+}
+
+::selection { background: #4F8FFF; color: #05070D; }
+
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: #04060C; }
+::-webkit-scrollbar-thumb { background: #1A2030; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #4F8FFF; }
+
+/* ── ambient background: live, smooth, low key ── */
+.aurora { position: absolute; border-radius: 50%; filter: blur(70px); will-change: transform; }
+.aurora-a {
+  width: 480px; height: 480px; top: -140px; left: 8%;
+  background: radial-gradient(circle, rgba(79,143,255,0.22), transparent 70%);
+  animation: drift-a 16s ease-in-out infinite;
+}
+.aurora-b {
+  width: 420px; height: 420px; top: 28%; right: 4%;
+  background: radial-gradient(circle, rgba(44,107,224,0.18), transparent 70%);
+  animation: drift-b 19s ease-in-out infinite;
+}
+.aurora-c {
+  width: 380px; height: 380px; bottom: -120px; left: 38%;
+  background: radial-gradient(circle, rgba(107,165,255,0.14), transparent 70%);
+  animation: drift-c 22s ease-in-out infinite;
+}
+@keyframes drift-a {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%     { transform: translate(70px,50px) scale(1.08); }
+  66%     { transform: translate(-40px,80px) scale(0.96); }
+}
+@keyframes drift-b {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%     { transform: translate(-70px,40px) scale(1.06); }
+  66%     { transform: translate(40px,-50px) scale(0.97); }
+}
+@keyframes drift-c {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%     { transform: translate(-60px,-50px) scale(1.1); }
+}
+
+/* fine dotted grid, masked to fade out toward the edges, slowly panning */
+.dotgrid {
+  background-image: radial-gradient(rgba(79,143,255,0.11) 1px, transparent 1.4px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(ellipse 95% 75% at 50% 25%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 95% 75% at 50% 25%, #000 35%, transparent 100%);
+  animation: gridpan 28s linear infinite;
+}
+@keyframes gridpan {
+  0%   { background-position: 0 0; }
+  100% { background-position: 48px 24px; }
+}
+
+.nightgrid-soft {
+  background-image:
+    linear-gradient(rgba(26,32,48,0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,32,48,0.35) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 95%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 95%);
+}
+
+.nightgrid {
+  background-image:
+    linear-gradient(rgba(26,32,48,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,32,48,0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 65% at 50% 30%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 65% at 50% 30%, #000 35%, transparent 100%);
+}
+
+.text-glow { text-shadow: 0 0 48px rgba(79,143,255,0.4); }
+
+@keyframes twinkle { 0%,100% { opacity:0.12 } 50% { opacity:0.85 } }
+.star { animation: twinkle var(--dur) ease-in-out infinite; animation-delay: var(--del); }
+
+/* interactive spotlight card */
+.spot {
+  position: relative;
+  background:
+    radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(79,143,255,0.10), transparent 60%),
+    rgba(12,16,25,0.72);
+  transition: border-color .3s ease, transform .3s cubic-bezier(.16,1,.3,1);
+}
+.spot:hover { border-color: rgba(79,143,255,0.45); transform: translateY(-3px); }
+
+/* gentle float for the isometric illustration */
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.bob { animation: bob 6s ease-in-out infinite; }
+
+/* blinking cursor for the typed name */
+@keyframes blink { 0%,49% { opacity:1 } 50%,100% { opacity:0 } }
+.cursor { animation: blink 1.1s step-end infinite; }
+
+/* scroll indicator travelling dot */
+@keyframes scrolldot {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(250%); }
+}
+.animate-scrolldot { animation: scrolldot 1.8s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+  .aurora, .dotgrid, .star, .bob, .cursor { animation: none !important; }
+}
