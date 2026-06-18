@@ -209,13 +209,6 @@ export const projects: Project[] = [
     category: "Speech & Language",
   },
   {
-    title: "Quran Recitation Evaluation",
-    blurb: "A real time recitation evaluator built on FastAPI and Whisper, streaming feedback to the browser over WebSocket.",
-    tags: ["FastAPI", "Whisper", "WebSocket"],
-    repo: "https://github.com/EmonKarmaker",
-    category: "Speech & Language",
-  },
-  {
     title: "LLaMA 3.1 8B Bengali Fine Tune",
     blurb: "LLaMA 3.1 8B fine tuned on Bengali empathetic conversations using LoRA, 4 bit, on a Kaggle T4.",
     tags: ["LLaMA", "LoRA", "4 bit", "Fine tuning"],

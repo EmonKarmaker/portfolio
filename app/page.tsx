@@ -10,11 +10,10 @@ import {
 } from "@/data/content";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
-import Scatter from "@/components/Scatter";
 import CountUp from "@/components/CountUp";
 import ProjectGrid from "@/components/ProjectGrid";
 import CommandPalette from "@/components/CommandPalette";
-import AmbientBg from "@/components/AmbientBg";
+import Background from "@/components/Background";
 import Typewriter from "@/components/Typewriter";
 import Greeting from "@/components/Greeting";
 import {
@@ -67,16 +66,12 @@ const facts = [
 export default function Home() {
   return (
     <main id="top" className="relative overflow-x-hidden">
-      <AmbientBg />
+      <Background />
       <Nav />
       <CommandPalette />
 
       {/* ───────── HERO ───────── */}
-      <section className="relative min-h-screen flex flex-col justify-center px-6 pt-16">
-        <div className="absolute inset-0 nightgrid pointer-events-none" />
-        <div className="absolute inset-0 opacity-50 pointer-events-none">
-          <Scatter />
-        </div>
+      <section className="relative z-10 min-h-screen flex flex-col justify-center px-6 pt-16">
 
         <div className="relative mx-auto max-w-3xl w-full flex flex-col items-center text-center">
           <Reveal>
@@ -150,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* ───────── ABOUT (redesigned) ───────── */}
-      <section id="field-notes" className="relative px-6 py-24 md:py-32">
+      <section id="field-notes" className="relative z-10 px-6 py-24 md:py-32">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <Heading index="01" kicker="About" title="Who's behind this" />
@@ -244,7 +239,7 @@ export default function Home() {
       </section>
 
       {/* ───────── STACK ───────── */}
-      <section id="stack" className="px-6 pb-24 md:pb-32">
+      <section id="stack" className="relative z-10 px-6 pb-24 md:pb-32">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <div className="flex items-baseline gap-4 font-mono text-xs mb-3">
@@ -288,7 +283,7 @@ export default function Home() {
       </section>
 
       {/* ───────── EXPERIENCE ───────── */}
-      <section id="log" className="px-6 py-24 md:py-32 bg-night2/50 border-y border-rule">
+      <section id="log" className="relative z-10 px-6 py-24 md:py-32 bg-night2/50 border-y border-rule">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <Heading index="02" kicker="Experience" title="Where the time went" />
@@ -316,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* ───────── WORK ───────── */}
-      <section id="experiments" className="px-6 py-24 md:py-32">
+      <section id="experiments" className="relative z-10 px-6 py-24 md:py-32">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <Heading index="03" kicker="Work" title="Projects & experiments" />
@@ -326,7 +321,7 @@ export default function Home() {
       </section>
 
       {/* ───────── PAPERS ───────── */}
-      <section id="papers" className="px-6 py-24 md:py-32 bg-night2/50 border-y border-rule">
+      <section id="papers" className="relative z-10 px-6 py-24 md:py-32 bg-night2/50 border-y border-rule">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <Heading index="04" kicker="Papers" title="Peer-reviewed work" />
@@ -378,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* ───────── EDUCATION & CERTS ───────── */}
-      <section id="education" className="px-6 py-24 md:py-32">
+      <section id="education" className="relative z-10 px-6 py-24 md:py-32">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <Heading index="05" kicker="Credentials" title="Education & certifications" />
@@ -412,7 +407,7 @@ export default function Home() {
       </section>
 
       {/* ───────── CONTACT ───────── */}
-      <section id="colophon" className="px-6 py-28 md:py-40 bg-night2/50 border-t border-rule">
+      <section id="colophon" className="relative z-10 px-6 py-28 md:py-40 bg-night2/50 border-t border-rule">
         <div className="mx-auto max-w-5xl">
           <Reveal>
             <p className="font-mono text-xs text-blue tracking-widest uppercase mb-6">Contact</p>
